@@ -50,3 +50,20 @@ body {
 .action_btns .btn.btn_next {
     float: right;
 }
+
+
+/* COUNTER */
+
+.count_slide {
+    width: 140px;
+    background: #0275d8;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    float: right;
+}
+
+.count_slide span{
+    font-weight: bold;
+}

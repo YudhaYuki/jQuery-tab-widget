@@ -2,6 +2,9 @@ $(document).ready(function() {
 
     var itemLength = $('.cards_container .item').length;
     var current = 1;
+
+    // SET TOTAL AMOUNT
+    $('.total_slides').text(itemLength);
  
     $('.cardSlider .btn_prev').on("click", function() {
         if (current > 1) {
@@ -27,6 +30,8 @@ $(document).ready(function() {
         $('.cards_container .item').removeClass('active');
 
         $('div[data-id="'+ current + '"]').addClass('active');
+
+        $('.current_slide').text(current);
     }
 });
 
