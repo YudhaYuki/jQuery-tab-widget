@@ -1,38 +1,32 @@
 $(document).ready(function() {
 
-    var itemLength = $('.cards_container .item').length;
-    var current = 1;
+    function startOverLay(overlayId) {
+            
+        $('.overlay-veil').fadeTo("500", "0.8", function() {
+            var element = $('div[data-overlayItem="'+ overlayId + '"]');
 
-    // SET TOTAL AMOUNT
-    $('.total_slides').text(itemLength);
- 
-    $('.cardSlider .btn_prev').on("click", function() {
-        if (current > 1) {
-            current -= 1;
-            showSlider(current);
-        } else {
-            current = itemLength;
-            showSlider(current);
-        }
-    })
-
-    $('.cardSlider .btn_next').on("click", function() {
-        if (current !== itemLength) {
-            current += 1;
-            showSlider(current);
-        } else {
-            current = 1;
-            showSlider(current);
-        }
-    })
-
-    function showSlider(current) {
-        $('.cards_container .item').removeClass('active');
-
-        $('div[data-id="'+ current + '"]').addClass('active');
-
-        $('.current_slide').text(current);
+            element.fadeIn("300");
+            element.addClass('active');
+        })
     }
+
+
+    function closeOverlayAll(overlayId) {
+        //
+
+        startOverLay(overlayId)
+
+
+    }
+
+
+    $('.overlay-item-click').on("click", function(e) {
+        e.preventDefault();
+
+        var overlayId = $(this).data("overlay");
+        closeOverlayAll(overlayId)
+    })
+
 });
 
 
