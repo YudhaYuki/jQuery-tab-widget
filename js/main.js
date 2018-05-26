@@ -1,20 +1,23 @@
 $(document).ready(function() {
 
-    $('.tab_header .item').on("click", function() {
-
-        var number = $(this).data("option");
-        
-        // Remove all active
-        $('.tab_header .item').removeClass('active');
-
-        // Add active
-        $(this).addClass('active');
-
-        // 
-        $('.tab_container .container_item').hide();
-        $('div[data-item="' + number + '"]').show();
+    var current = 1;
+ 
+    $('.cardSlider .btn_prev').on("click", function() {
+        current -= 1;
+        showSlider(current);
     })
 
+    $('.cardSlider .btn_next').on("click", function() {
+
+        current += 1;
+        showSlider(current);
+    })
+
+    function showSlider(current) {
+        $('.cards_container .item').removeClass('active');
+
+        $('div[data-id="'+ current + '"]').addClass('active');
+    }
 });
 
 
